@@ -13,6 +13,8 @@ export default function Navbar() {
 
   const links = [
     { href: "#why", label: t.why },
+    { href: "#quarter", label: t.quarter },
+    { href: "#building", label: t.building },
     { href: "#floors", label: t.floors },
     { href: "#gallery", label: t.gallery },
     { href: "#location", label: t.location },

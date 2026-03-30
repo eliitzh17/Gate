@@ -153,7 +153,7 @@ export default function FloorDetailModal({
                 {t.floorPlan} {floorNumber}
               </h2>
               <p className="text-white/70 text-sm mt-0.5">
-                {fmt(floor.grossSqm)} {dict.common.sqm} {t.gross} · {fmt(floor.netSqm)} {dict.common.sqm} {t.net}
+                {fmt(floor.grossSqm)} {dict.common.sqm} {t.gross}
               </p>
             </div>
             <button
@@ -165,6 +165,12 @@ export default function FloorDetailModal({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
+          </div>
+
+          {/* Tabu Note */}
+          <div className="mx-4 md:mx-6 mt-4 bg-gold/10 border border-gold/20 rounded-xl px-4 py-3 flex items-center gap-3">
+            <svg className="w-5 h-5 text-gold-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            <span className="text-sm text-navy font-medium">{dict.floors.tabuNote}</span>
           </div>
 
           {/* Floor Plan PDF */}

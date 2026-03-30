@@ -62,11 +62,14 @@ export default function AvailableFloors() {
                 </div>
                 <div className="text-2xl font-bold text-gold mb-1">{fmtPrice(floor.totalPrice)}</div>
                 <div className="text-xs text-gray-400 mb-4">{t.floorPrice}</div>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-3">
                   <div><span className="text-gray-400 text-xs">{t.gross}</span><div className="font-medium">{fmt(floor.grossSqm)} {dict.common.sqm}</div></div>
-                  <div><span className="text-gray-400 text-xs">{t.net}</span><div className="font-medium">~{fmt(floor.netSqm)} {dict.common.sqm}</div></div>
                   <div><span className="text-gray-400 text-xs">{t.pricePerSqm}</span><div className="font-medium">{fmtPrice(floor.pricePerSqm)}</div></div>
                   <div><span className="text-gray-400 text-xs">{t.parking}</span><div className="font-medium">{floor.parking} ({t.parkingExtra})</div></div>
+                </div>
+                <div className="bg-navy/5 rounded-lg px-3 py-2 mb-4 flex items-center gap-2">
+                  <svg className="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  <span className="text-xs text-navy/70 font-medium">{t.tabuNote}</span>
                 </div>
                 <button onClick={(e) => { e.stopPropagation(); setDetailFloor(floor.number); }} className="block w-full text-center bg-navy hover:bg-navy-light text-white text-sm font-medium py-3 rounded-lg transition-colors">{t.detailsFor} {floor.number}</button>
               </motion.div>

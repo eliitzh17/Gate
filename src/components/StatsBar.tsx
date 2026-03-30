@@ -30,14 +30,14 @@ export default function StatsBar() {
   ];
 
   return (
-    <section className="bg-navy-light py-10 border-t border-b border-gold/20">
+    <section className="bg-navy-light py-12 border-t border-b border-gold/20">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-0 text-center divide-x divide-x-reverse divide-gold/20">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
           {stats.map((stat, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.08 }} className="px-4 py-2">
-              <div className="text-gold/70 flex justify-center mb-2">{stat.icon}</div>
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.08 }} className="bg-white/5 rounded-xl px-4 py-5 border border-white/8 hover:bg-white/8 transition-colors">
+              <div className="text-gold/70 flex justify-center mb-3">{stat.icon}</div>
               <div className="text-3xl md:text-4xl font-bold text-gold"><AnimatedNumber target={stat.number} suffix={stat.suffix} /></div>
-              <div className="text-white font-medium text-sm mt-1">{stat.label}</div>
+              <div className="text-white font-medium text-sm mt-1.5">{stat.label}</div>
               <div className="text-white/40 text-xs mt-0.5">{stat.sublabel}</div>
             </motion.div>
           ))}

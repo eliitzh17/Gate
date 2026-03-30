@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import StatsBar from "./StatsBar";
 import WhyGate from "./WhyGate";
+import TheQuarter from "./TheQuarter";
 import AvailableFloors from "./AvailableFloors";
 import Gallery from "./Gallery";
 import Features from "./Features";
@@ -50,9 +51,10 @@ export default function LandingPage({
           <Hero />
           <StatsBar />
           <WhyGate />
+          <TheQuarter />
+          <Features />
           <AvailableFloors />
           <Gallery />
-          <Features />
           <Location />
           <Timeline />
           <Developers />

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useI18n } from "./LandingPage";
 
 export default function Features() {
@@ -20,9 +21,40 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-20 bg-warm-white" id="features">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} className="text-3xl md:text-4xl font-bold text-center text-navy mb-16">{t.title}</motion.h2>
+    <section className="bg-warm-white" id="building">
+      {/* Building hero image */}
+      <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+        <Image
+          src="/images/Gate_v5_hi-res_0904-副本-1.jpg"
+          alt="GATE Jerusalem Tower"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          quality={85}
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(248,247,243,1) 0%, rgba(248,247,243,0.3) 30%, transparent 60%)" }} />
+        <div className="absolute bottom-0 inset-x-0 text-center pb-8 px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-navy"
+          >
+            {t.title}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-navy/60 mt-2 text-sm md:text-base max-w-2xl mx-auto"
+          >
+            {t.subtitle}
+          </motion.p>
+        </div>
+      </div>
+
+      {/* Specs */}
+      <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {primary.map((f, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} className="bg-navy text-white rounded-2xl p-8 flex items-start gap-5">

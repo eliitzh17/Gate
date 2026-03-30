@@ -13,7 +13,7 @@ export default function WhyGate() {
   ];
 
   return (
-    <section className="py-20 bg-warm-white" id="why">
+    <section className="py-24 bg-warm-white" id="why">
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} className="text-3xl md:text-4xl font-bold text-center text-navy mb-16">
           {t.title.split("{gold}").map((part, i) => { if (i === 0) return part; const [gold, rest] = part.split("{/gold}"); return <span key={i}><span className="text-gold">{gold}</span>{rest}</span>; })}

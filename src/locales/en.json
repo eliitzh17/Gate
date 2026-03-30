@@ -2,6 +2,8 @@
   "nav": {
     "gallery": "Gallery",
     "why": "Why GATE",
+    "quarter": "The Quarter",
+    "building": "The Tower",
     "floors": "The Floors",
     "plans": "Floor Plans",
     "location": "Location",
@@ -10,12 +12,13 @@
   },
   "hero": {
     "badge": "THE GATE JERUSALEM",
-    "title1": "Jerusalem's New",
-    "title2": "Business Address",
+    "title1": "Jerusalem Gateway Quarter",
+    "title2": "The New Financial Center of Jerusalem",
     "subtitle1": "Full-ownership office floors. 40-story tower.",
     "subtitle2": "LEED certified. 13 elevators. Entrance to Jerusalem.",
     "cta": "Explore the Floors",
     "ctaFloors": "Watch Project Video",
+    "ctaQuarter": "Discover the Quarter",
     "videoLabel": "Watch Project Video"
   },
   "stats": {
@@ -60,6 +63,7 @@
     "midHigh": "Mid-High",
     "allElevators": "All elevators reach this floor",
     "panoramic": "Panoramic Views",
+    "tabuNote": "Each floor is divided into 8 separate Tabu registration units",
     "paymentTitle": "Payment Terms",
     "atPurchase": "At Purchase",
     "atDelivery": "At Delivery (2029-2030)",
@@ -94,7 +98,8 @@
     "viewModels": "View Models"
   },
   "features": {
-    "title": "International-Standard Design",
+    "title": "The Tower",
+    "subtitle": "40 floors of world-class design, green construction, and premium specifications",
     "leed": "LEED International Standard",
     "leedDesc": "Certified green building — energy savings, excellent air quality and environmental responsibility",
     "bank": "Bank Hapoalim Financing",
@@ -147,7 +152,8 @@
     "byRail": "Public Transport",
     "greenLineBadge": "2026",
     "greenLineTitle": "The Green Line Light Rail Opens This Year",
-    "greenLineDesc": "A new line connecting Malha to the city center via GATE Jerusalem — a station right next to the tower. Direct access to all of Jerusalem."
+    "greenLineDesc": "A new line connecting Malha to the city center via GATE Jerusalem — a station right next to the tower. Direct access to all of Jerusalem.",
+    "mapTitle": "Location on Map"
   },
   "developers": {
     "title": "The Developers",
@@ -302,6 +308,36 @@
     "label": "Currency",
     "rateNote": "Prices shown in {currency} based on Bank of Israel exchange rate",
     "baseCurrency": "Base: ILS"
+  },
+  "quarter": {
+    "title": "Jerusalem Gateway {gold}Quarter{/gold}",
+    "subtitle": "Israel's largest urban development project — a world-class financial, business & cultural center",
+    "description": "The Jerusalem Gateway Quarter is an unprecedented national initiative promoted by the Jerusalem Municipality and the Israeli Government. Located between the Yitzhak Navon train station, the Knesset (Parliament), and the Supreme Court, the quarter is set to transform the city's entrance into a premier business, commercial, and cultural hub.",
+    "whyTitle": "Why is the city promoting the Quarter?",
+    "whyDesc": "Jerusalem is the capital, yet until now it has lacked a modern financial center. The Quarter aims to bridge that gap — attracting tech companies, international law and accounting firms, and global corporations, while creating 60,000 new jobs and significant municipal revenue.",
+    "stat1Value": "1.2M",
+    "stat1Unit": "sqm",
+    "stat1Label": "Total planned area",
+    "stat2Value": "20",
+    "stat2Unit": "Towers",
+    "stat2Label": "Office & residential towers",
+    "stat3Value": "60K",
+    "stat3Unit": "Jobs",
+    "stat3Label": "Expected new positions",
+    "stat4Value": "350K",
+    "stat4Unit": "Visitors/day",
+    "stat4Label": "Expected daily foot traffic",
+    "stat5Value": "3",
+    "stat5Unit": "Light rail lines",
+    "stat5Label": "Maximum transit access",
+    "stat6Value": "10",
+    "stat6Unit": "Billion NIS",
+    "stat6Label": "Infrastructure investment",
+    "planned": "What's planned in the Quarter?",
+    "plannedDesc": "A European-inspired commercial boulevard, international hotels, cultural institutions including the new Bezalel Academy, government offices, courts, green parks, and residential buildings — a complete urban ecosystem operating 24/7.",
+    "videoTitle": "Discover the Quarter",
+    "videoYoutube": "GATE Project Video",
+    "videoFacebook": "Gateway Quarter — Committee Video"
   },
   "alt": {
     "heroMain": "GATE Jerusalem — 40-story office tower at Jerusalem's entrance near the String Bridge",
