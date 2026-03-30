@@ -50,7 +50,7 @@
     "title": "Available Floors",
     "subtitle": "Click on a floor in the tower or on a card for full details",
     "available": "Available",
-    "sold": "Sold",
+    "sold": "Unavailable",
     "floor": "Floor",
     "floorPrice": "Full Floor Price",
     "gross": "Gross",
