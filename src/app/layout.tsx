@@ -24,7 +24,7 @@ const notoArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://gate-jerusalem.co.il"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://za-cpa.com"),
   title: "GATE Jerusalem — Office Floors for Sale",
   description:
     "Office floors for sale in GATE Tower, Jerusalem. 1,550-1,700 sqm, LEED certified, 32 min to Tel Aviv. 30/70 payment terms.",

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import LandingPage from "@/components/LandingPage";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://gate-jerusalem.co.il";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://za-cpa.com";
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));

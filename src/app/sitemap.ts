@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://gate-jerusalem.co.il";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://za-cpa.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/Gate",
+  trailingSlash: true,
   images: {
     unoptimized: true,
     qualities: [75, 85],
