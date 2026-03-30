@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useI18n } from "./LandingPage";
 import { useCurrency } from "./CurrencyProvider";
 import { getFloorData, getUnitPrice, type FloorUnit } from "@/lib/floorUnitsData";
+import TabuIcon from "./TabuIcon";
 
 function fmt(n: number) {
   return n.toLocaleString("en-US");
@@ -169,7 +170,7 @@ export default function FloorDetailModal({
 
           {/* Tabu Note */}
           <div className="mx-4 md:mx-6 mt-4 bg-gold/10 border border-gold/20 rounded-xl px-4 py-3 flex items-center gap-3">
-            <svg className="w-5 h-5 text-gold-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            <TabuIcon className="w-5 h-5 text-gold-dark shrink-0" />
             <span className="text-sm text-navy font-medium">{dict.floors.tabuNote}</span>
           </div>
 

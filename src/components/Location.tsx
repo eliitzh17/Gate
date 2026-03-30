@@ -103,7 +103,7 @@ export default function Location() {
           <h3 className="text-xl font-bold text-navy text-center mb-6">{t.mapTitle}</h3>
           <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[16/7]">
             <iframe
-              src={`https://maps.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=16&output=embed&markers=${MAP_LAT},${MAP_LNG}`}
+              src={`https://maps.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=16&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}

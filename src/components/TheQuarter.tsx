@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useI18n } from "./LandingPage";
+import { renderGoldTitle } from "@/lib/renderGoldTitle";
 
 const YOUTUBE_ID = "pkOtGPrMGlU";
 const FB_VIDEO_URL =
@@ -21,19 +22,6 @@ export default function TheQuarter() {
     { value: t.stat5Value, unit: t.stat5Unit, label: t.stat5Label },
     { value: t.stat6Value, unit: t.stat6Unit, label: t.stat6Label },
   ];
-
-  function renderGoldTitle(text: string) {
-    return text.split("{gold}").map((part, i) => {
-      if (i === 0) return part;
-      const [gold, rest] = part.split("{/gold}");
-      return (
-        <span key={i}>
-          <span className="text-gold">{gold}</span>
-          {rest}
-        </span>
-      );
-    });
-  }
 
   return (
     <section className="py-20 bg-navy text-white" id="quarter">
@@ -162,8 +150,7 @@ export default function TheQuarter() {
                     title="Gateway Quarter Video"
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     allowFullScreen
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
-                    scrolling="no"
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none", overflow: "hidden" }}
                   />
                 ) : (
                   <>
