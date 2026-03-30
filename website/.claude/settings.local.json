@@ -1,8 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /c/claudeEco/projects/Gate/website/src/app/[lang] -type f)",
-      "Bash(wc:*)"
+      "Bash(npx next:*)"
     ]
   }
 }

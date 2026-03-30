@@ -1,0 +1,36 @@
+Sacher Park Jerusalem - Image Sources
+======================================
+
+All images are royalty-free, free for commercial use.
+
+Image 1: sacher-park-1.jpg - Green Park Wide Shot (lawns, trees, landscape)
+  Source: https://www.pexels.com/photo/green-grass-field-and-trees-1287089/
+  Description: Lush green rolling hills with trees - evokes Jerusalem's biggest urban park
+  Photographer: eberhard grossgasteiger (Pexels)
+  Resolution: 1920x1280
+  Size: ~392 KB
+  License: Pexels License (free for commercial use, no attribution required)
+
+Image 2: sacher-park-2.jpg - People Enjoying the Park (jogging, lifestyle)
+  Source: https://www.pexels.com/photo/photo-of-people-jogging-4148937/
+  Description: Three people jogging on a park path - active lifestyle feel
+  Photographer: Pexels contributor
+  Resolution: 1920x1280
+  Size: ~237 KB
+  License: Pexels License (free for commercial use, no attribution required)
+
+Image 3: sacher-park-3.jpg - Sunset/Golden Hour (atmospheric)
+  Source: https://www.pexels.com/photo/green-trees-under-the-orange-sky-during-sunset-12734137/
+  Description: Dramatic golden sunset over tree-lined horizon - atmospheric mood
+  Photographer: Pexels contributor
+  Resolution: 2560x3850
+  Size: ~254 KB
+  License: Pexels License (free for commercial use, no attribution required)
+
+Notes:
+- Sacher Park (Gan Sacher) specific photos were available on Wikimedia Commons
+  (https://commons.wikimedia.org/wiki/Category:Sacher_Park - 93 files)
+  but could not be downloaded due to SSL/rate-limiting issues.
+- These Pexels images serve as high-quality representative alternatives
+  suitable for a premium office tower marketing website.
+- All images are free for commercial use with no attribution required.
