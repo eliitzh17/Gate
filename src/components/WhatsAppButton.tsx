@@ -1,23 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import { useI18n } from "./LandingPage";
+import { useStickyBarVisible } from "@/lib/useStickyBarVisible";
 
 export default function WhatsAppButton() {
   const { dict } = useI18n();
-  const [stickyBarVisible, setStickyBarVisible] = useState(false);
-
-  useEffect(() => {
-    const handler = () => {
-      const pastHero = window.scrollY > window.innerHeight;
-      const contactEl = document.getElementById("contact");
-      const contactVisible = contactEl && contactEl.getBoundingClientRect().top < window.innerHeight;
-      setStickyBarVisible(pastHero && !contactVisible);
-    };
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
+  const stickyBarVisible = useStickyBarVisible();
 
   return (
     <motion.a href="https://wa.me/972546302880?text=Hi%2C%20I%27m%20interested%20in%20GATE%20Jerusalem" target="_blank" rel="noopener noreferrer" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2, type: "spring" }} className={`fixed left-6 z-50 group flex items-center gap-0 hover:gap-3 transition-all duration-300 ${stickyBarVisible ? "bottom-[72px]" : "bottom-6"} md:bottom-6`} title={dict.whatsapp.label}>

@@ -65,7 +65,7 @@ export default function Gallery() {
             <motion.div key={selected} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} onClick={(e) => e.stopPropagation()} className="relative max-w-5xl w-full aspect-video cursor-default"><Image src={images[selected].src} alt={images[selected].alt} fill className="object-contain rounded-lg" sizes="90vw" priority /></motion.div>
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
               {images.map((_, i) => (
-                <button key={i} onClick={(e) => { e.stopPropagation(); setSelected(i); }} className={`rounded-full transition-all ${i === selected ? "w-2.5 h-2.5 bg-white" : "w-1.5 h-1.5 bg-white/40 hover:bg-white/60"}`} />
+                <button key={i} onClick={(e) => { e.stopPropagation(); setSelected(i); }} aria-label={`Image ${i + 1} of ${images.length}`} className={`rounded-full transition-all ${i === selected ? "w-2.5 h-2.5 bg-white" : "w-1.5 h-1.5 bg-white/40 hover:bg-white/60"}`} />
               ))}
             </div>
           </motion.div>
