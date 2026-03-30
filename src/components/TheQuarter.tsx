@@ -24,7 +24,7 @@ export default function TheQuarter() {
   ];
 
   return (
-    <section className="py-20 bg-navy text-white" id="quarter">
+    <section className="py-12 md:py-20 bg-navy text-white" id="quarter">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.h2

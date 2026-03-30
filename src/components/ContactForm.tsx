@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useI18n } from "./LandingPage";
 
+const floorOptions = [
+  { value: "21", grossSqm: "1,550", price: "₪31,775,000" },
+  { value: "22", grossSqm: "1,550", price: "₪31,775,000" },
+  { value: "24", grossSqm: "1,550", price: "₪31,775,000" },
+  { value: "35", grossSqm: "1,700", price: "₪39,950,000" },
+  { value: "37", grossSqm: "1,700", price: "₪39,950,000" },
+];
+
 export default function ContactForm() {
   const { dict } = useI18n();
   const t = dict.contact;
@@ -30,14 +38,14 @@ export default function ContactForm() {
   function copyPhone() { navigator.clipboard.writeText("0546302880"); setCopied(true); setTimeout(() => setCopied(false), 2000); }
 
   return (
-    <section className="py-20 bg-navy" id="contact">
+    <section className="py-12 md:py-20 bg-navy" id="contact">
       <div className="max-w-4xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-center text-white mb-4">
           {t.title} <span className="text-gold">{t.titleHighlight}</span>
         </motion.h2>
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-white/60 mb-12">{t.subtitle}</motion.p>
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-white/60 mb-6 md:mb-12">{t.subtitle}</motion.p>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-2xl p-5 md:p-10 shadow-2xl">
           {submitted ? (
             <div className="text-center py-10">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4"><svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
@@ -59,11 +67,9 @@ export default function ContactForm() {
               <div><label className="block text-sm font-medium text-navy mb-2">{t.floorInterest}</label>
                 <select name="floor_interest" ref={selectRef} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all text-navy bg-white">
                   <option value="all">{t.allFloors}</option>
-                  <option value="21">Floor 21 — 1,550 sqm — ₪31,775,000</option>
-                  <option value="22">Floor 22 — 1,550 sqm — ₪31,775,000</option>
-                  <option value="24">Floor 24 — 1,550 sqm — ₪31,775,000</option>
-                  <option value="35">Floor 35 — 1,700 sqm — ₪39,950,000</option>
-                  <option value="37">Floor 37 — 1,700 sqm — ₪39,950,000</option>
+                  {floorOptions.map((f) => (
+                    <option key={f.value} value={f.value}>{dict.floors.floor} {f.value} — {f.grossSqm} {dict.common.sqm} — {f.price}</option>
+                  ))}
                 </select>
               </div>
               <div><label className="block text-sm font-medium text-navy mb-2">{t.message}</label><textarea name="message" rows={3} className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all text-navy resize-none" placeholder={t.messagePlaceholder} /></div>

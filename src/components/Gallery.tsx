@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { renderGoldTitle } from "@/lib/renderGoldTitle";
 import { useI18n } from "./LandingPage";
 
@@ -22,14 +22,25 @@ export default function Gallery() {
   const images = imageSrcs.map((src, i) => ({ src, alt: dict.alt[altKeys[i]] }));
   const t = dict.gallery;
   const [selected, setSelected] = useState<number | null>(null);
+  const touchStart = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => { touchStart.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart.current === null || selected === null) return;
+    const delta = touchStart.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      setSelected(delta > 0 ? (selected + 1) % images.length : (selected - 1 + images.length) % images.length);
+    }
+    touchStart.current = null;
+  };
 
   return (
-    <section className="py-20 bg-navy" id="gallery">
+    <section className="py-12 md:py-20 bg-navy" id="gallery">
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} className="text-3xl md:text-4xl font-bold text-center text-white mb-4">
           {renderGoldTitle(t.title)}
         </motion.h2>
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-white/60 mb-12">{t.subtitle}</motion.p>
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-white/60 mb-6 md:mb-12">{t.subtitle}</motion.p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {images.map((img, i) => (
@@ -47,12 +58,16 @@ export default function Gallery() {
 
       <AnimatePresence>
         {selected !== null && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)} className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-pointer">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-pointer">
             <button onClick={() => setSelected(null)} className="absolute top-6 left-6 text-white/70 hover:text-white transition-colors z-10"><svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></button>
-            <button onClick={(e) => { e.stopPropagation(); setSelected((selected - 1 + images.length) % images.length); }} className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors z-10"><svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></button>
-            <button onClick={(e) => { e.stopPropagation(); setSelected((selected + 1) % images.length); }} className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors z-10"><svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
+            <button onClick={(e) => { e.stopPropagation(); setSelected((selected - 1 + images.length) % images.length); }} className="absolute right-2 md:right-8 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center text-white/70 hover:text-white transition-colors z-10"><svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></button>
+            <button onClick={(e) => { e.stopPropagation(); setSelected((selected + 1) % images.length); }} className="absolute left-2 md:left-8 w-12 h-12 rounded-full bg-black/30 hover:bg-black/50 flex items-center justify-center text-white/70 hover:text-white transition-colors z-10"><svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
             <motion.div key={selected} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} onClick={(e) => e.stopPropagation()} className="relative max-w-5xl w-full aspect-video cursor-default"><Image src={images[selected].src} alt={images[selected].alt} fill className="object-contain rounded-lg" sizes="90vw" priority /></motion.div>
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-sm">{selected + 1} / {images.length}</div>
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+              {images.map((_, i) => (
+                <button key={i} onClick={(e) => { e.stopPropagation(); setSelected(i); }} className={`rounded-full transition-all ${i === selected ? "w-2.5 h-2.5 bg-white" : "w-1.5 h-1.5 bg-white/40 hover:bg-white/60"}`} />
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

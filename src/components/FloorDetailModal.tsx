@@ -251,8 +251,48 @@ export default function FloorDetailModal({
                 </div>
               </div>
 
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm border-collapse min-w-[640px]">
+              {/* Mobile: card layout */}
+              <div className="md:hidden flex flex-col gap-3">
+                {sorted.map((unit) => {
+                  const price = getUnitPrice(unit, floor.pricePerSqm);
+                  return (
+                    <div key={unit.id} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-navy/10 text-navy font-bold text-sm">{unit.model}</span>
+                          <span className="text-gray-400 text-xs font-mono">{unit.id}</span>
+                        </div>
+                        <span className="text-xs text-gray-500">{dirs[unit.direction]}</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                        <div><span className="text-gray-400 text-xs">{t.netArea}</span><div className="font-medium">{fmt(unit.netSqm)}</div></div>
+                        <div><span className="text-gray-400 text-xs">{t.pricingArea}</span><div className="font-medium text-navy">{fmt(unit.pricingSqm)}</div></div>
+                        {unit.balcony > 0 && <div><span className="text-gray-400 text-xs">{t.balcony}</span><div className="text-gray-500">{fmt(unit.balcony)}</div></div>}
+                        {unit.shelter > 0 && <div><span className="text-gray-400 text-xs">{t.shelter}</span><div className="text-gray-500">{fmt(unit.shelter)}</div></div>}
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-gray-200 text-end">
+                        <span className="text-xs text-gray-400">{t.unitPrice}</span>
+                        <div className="text-lg font-bold text-gold-dark">{fmtPrice(price)}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+                {sorted.length === 0 && (
+                  <div className="py-8 text-center text-gray-400 text-sm">{t.noResults}</div>
+                )}
+                <div className="bg-navy/5 rounded-xl p-4 font-bold text-sm">
+                  <div className="flex justify-between mb-1"><span>{t.total} {hasActiveFilter && `(${filtered.length}/${floor.units.length})`}</span></div>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    <div><span className="text-gray-400 text-xs font-normal">{t.netArea}</span><div>{fmt(totalNet)}</div></div>
+                    <div><span className="text-gray-400 text-xs font-normal">{t.pricingArea}</span><div className="text-navy">{fmt(totalPricing)}</div></div>
+                  </div>
+                  <div className="mt-2 text-end text-gold-dark">{fmtPrice(totalPrice)}</div>
+                </div>
+              </div>
+
+              {/* Desktop: table layout */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="bg-navy text-white text-xs">
                       <th className="px-2 py-2.5 text-start font-medium">{t.unitId}</th>

@@ -15,7 +15,7 @@ export default function Timeline() {
   ];
 
   return (
-    <section className="py-16 bg-warm-white" id="timeline">
+    <section className="py-10 md:py-16 bg-warm-white" id="timeline">
       <div className="max-w-4xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} className="text-2xl md:text-3xl font-bold text-center text-navy mb-12">{t.title}</motion.h2>
         <div className="relative">
