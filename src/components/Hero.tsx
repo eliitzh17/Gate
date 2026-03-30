@@ -22,7 +22,7 @@ export default function Hero() {
 
       {/* Headline + CTAs below image */}
       <section className="bg-navy py-12 text-center px-4">
-        <motion.h1 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-2xl md:text-4xl font-bold text-white mb-2">
+        <motion.h1 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold text-white mb-2">
           {t.title1} <span className="text-gold">{t.title2}</span>
         </motion.h1>
         <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="flex flex-col sm:flex-row gap-3 justify-center items-center mt-8">

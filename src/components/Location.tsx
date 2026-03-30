@@ -59,7 +59,7 @@ export default function Location() {
   ];
 
   return (
-    <section className="py-20 bg-white" id="location">
+    <section className="py-12 md:py-20 bg-white" id="location">
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} className="text-3xl md:text-4xl font-bold text-center text-navy mb-4">{t.title}</motion.h2>
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">{t.subtitle}</motion.p>
@@ -101,7 +101,7 @@ export default function Location() {
           className="mt-12"
         >
           <h3 className="text-xl font-bold text-navy text-center mb-6">{t.mapTitle}</h3>
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[16/7]">
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[4/3] md:aspect-[16/7]">
             <iframe
               src={`https://maps.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=16&output=embed`}
               width="100%"

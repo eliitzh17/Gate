@@ -54,7 +54,7 @@ export default function Features() {
       </div>
 
       {/* Specs */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
+      <div className="max-w-6xl mx-auto px-4 py-10 md:py-16">
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {primary.map((f, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1 }} className="bg-navy text-white rounded-2xl p-8 flex items-start gap-5">

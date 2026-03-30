@@ -15,7 +15,7 @@ export default function Developers() {
   ];
 
   return (
-    <section className="py-16 bg-navy" id="developers">
+    <section className="py-10 md:py-16 bg-navy" id="developers">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
           {devs.map((dev, i) => (
