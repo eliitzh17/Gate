@@ -68,7 +68,10 @@
       "Bash(grep -v \"^$\")",
       "Bash(find C:/claudeEco/projects/Gate/website/node_modules/next/dist/docs/01-app -name *metadata* -o -name *open*graph* -o -name *seo*)",
       "Bash(cd:*)",
-      "Bash(gh auth:*)"
+      "Bash(gh auth:*)",
+      "Bash(file *-1.jpg *-2.jpg *-3.jpg)",
+      "Bash(gh repo:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

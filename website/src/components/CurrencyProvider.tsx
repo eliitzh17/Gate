@@ -43,11 +43,15 @@ export default function CurrencyProvider({ lang, children }: { lang: Locale; chi
     let cancelled = false;
     async function fetchRates() {
       try {
-        const res = await fetch("/api/exchange-rates");
+        const res = await fetch("https://open.er-api.com/v6/latest/ILS");
         if (!res.ok) return;
         const data = await res.json();
-        if (!cancelled && data.rates) {
-          setRates(data.rates);
+        if (!cancelled && data.result === "success" && data.rates) {
+          setRates({
+            ILS: 1,
+            USD: Math.round(data.rates.USD * 1_000_000) / 1_000_000,
+            AED: Math.round(data.rates.AED * 1_000_000) / 1_000_000,
+          });
           setRatesLoaded(true);
         }
       } catch {
