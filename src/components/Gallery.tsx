@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { renderGoldTitle } from "@/lib/renderGoldTitle";
 import { useI18n } from "./LandingPage";
 
 const imageSrcs = [
@@ -26,11 +27,7 @@ export default function Gallery() {
     <section className="py-20 bg-navy" id="gallery">
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} className="text-3xl md:text-4xl font-bold text-center text-white mb-4">
-          {t.title.split("{gold}").map((part, i) => {
-            if (i === 0) return part;
-            const [gold, rest] = part.split("{/gold}");
-            return <span key={i}><span className="text-gold">{gold}</span>{rest}</span>;
-          })}
+          {renderGoldTitle(t.title)}
         </motion.h2>
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center text-white/60 mb-12">{t.subtitle}</motion.p>
 

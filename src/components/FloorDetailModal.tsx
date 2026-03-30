@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useI18n } from "./LandingPage";
 import { useCurrency } from "./CurrencyProvider";
 import { getFloorData, getUnitPrice, type FloorUnit } from "@/lib/floorUnitsData";
+import TabuIcon from "./TabuIcon";
 
 function fmt(n: number) {
   return n.toLocaleString("en-US");
@@ -153,7 +154,7 @@ export default function FloorDetailModal({
                 {t.floorPlan} {floorNumber}
               </h2>
               <p className="text-white/70 text-sm mt-0.5">
-                {fmt(floor.grossSqm)} {dict.common.sqm} {t.gross} · {fmt(floor.netSqm)} {dict.common.sqm} {t.net}
+                {fmt(floor.grossSqm)} {dict.common.sqm} {t.gross}
               </p>
             </div>
             <button
@@ -165,6 +166,12 @@ export default function FloorDetailModal({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
+          </div>
+
+          {/* Tabu Note */}
+          <div className="mx-4 md:mx-6 mt-4 bg-gold/10 border border-gold/20 rounded-xl px-4 py-3 flex items-center gap-3">
+            <TabuIcon className="w-5 h-5 text-gold-dark shrink-0" />
+            <span className="text-sm text-navy font-medium">{dict.floors.tabuNote}</span>
           </div>
 
           {/* Floor Plan PDF */}

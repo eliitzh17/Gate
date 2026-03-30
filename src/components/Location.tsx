@@ -40,18 +40,22 @@ function RotatingImage({ images, alt, interval = 2000 }: { images: string[]; alt
   );
 }
 
+// GATE Jerusalem — Shazar Blvd, near Chords Bridge, entrance to Jerusalem
+const MAP_LAT = "31.7890";
+const MAP_LNG = "35.2030";
+
 export default function Location() {
   const { dict } = useI18n();
   const t = dict.location;
 
   const alt = dict.alt;
   const destinations = [
-    { time: "32", name: t.train, hook: t.trainHook, mode: t.byTrain, alt: alt.locationTrain, images: ["/images/locations/tel-aviv-1.jpg", "/images/locations/tel-aviv-2.jpg", "/images/locations/tel-aviv-3.jpg"] },
-    { time: "5", name: t.lightRail, hook: t.lightRailHook, mode: t.byFoot, alt: alt.locationLightRail, images: ["/images/locations/light-rail-1.jpg", "/images/locations/light-rail-2.jpg", "/images/locations/light-rail-3.jpg"] },
+    { time: "5", name: t.lightRail, hook: t.lightRailHook, mode: t.byFoot, alt: alt.locationLightRail, images: ["/images/locations/light-rail-2.jpg", "/images/locations/light-rail-3.jpg"] },
     { time: "10", name: t.knesset, hook: t.knessetHook, mode: t.byFoot, alt: alt.locationKnesset, images: ["/images/locations/knesset-1.jpg", "/images/locations/knesset-2.jpg", "/images/locations/knesset-3.jpg"] },
-    { time: "10", name: t.sacherPark, hook: t.sacherParkHook, mode: t.byFoot, alt: alt.locationSacherPark, images: ["/images/locations/sacher-park-1.jpg", "/images/locations/sacher-park-2.jpg", "/images/locations/sacher-park-3.jpg"] },
-    { time: "15", name: t.machaneYehuda, hook: t.machaneYehudaHook, mode: t.byFoot, alt: alt.locationMachaneYehuda, images: ["/images/locations/machane-yehuda-1.jpg", "/images/locations/machane-yehuda-2.jpg", "/images/locations/machane-yehuda-3.jpg"] },
+    { time: "10", name: t.sacherPark, hook: t.sacherParkHook, mode: t.byFoot, alt: alt.locationSacherPark, images: ["/images/locations/sacher-park-2.jpg", "/images/locations/sacher-park-3.jpg"] },
+    { time: "15", name: t.machaneYehuda, hook: t.machaneYehudaHook, mode: t.byFoot, alt: alt.locationMachaneYehuda, images: ["/images/locations/machane-yehuda-2.jpg", "/images/locations/machane-yehuda-4.jpg", "/images/locations/machane-yehuda-6.jpg"] },
     { time: "15", name: t.oldCity, hook: t.oldCityHook, mode: t.byRail, alt: alt.locationOldCity, images: ["/images/locations/old-city-1.jpg", "/images/locations/old-city-2.jpg", "/images/locations/old-city-3.jpg"] },
+    { time: "32", name: t.train, hook: t.trainHook, mode: t.byTrain, alt: alt.locationTrain, images: ["/images/locations/tel-aviv-1.jpg", "/images/locations/tel-aviv-2.jpg"] },
   ];
 
   return (
@@ -70,7 +74,7 @@ export default function Location() {
               transition={{ delay: i * 0.08 }}
               className="group relative rounded-2xl overflow-hidden h-64"
             >
-              <RotatingImage images={d.images} alt={d.alt} interval={2000 + i * 300} />
+              <RotatingImage images={d.images} alt={d.alt} interval={6000 + i * 300} />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent z-10" />
 
               {/* Time + mode badge */}
@@ -88,6 +92,28 @@ export default function Location() {
             </motion.div>
           ))}
         </div>
+
+        {/* Google Maps */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12"
+        >
+          <h3 className="text-xl font-bold text-navy text-center mb-6">{t.mapTitle}</h3>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[16/7]">
+            <iframe
+              src={`https://maps.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=16&output=embed`}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="GATE Jerusalem Location"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

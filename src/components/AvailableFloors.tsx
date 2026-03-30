@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useI18n } from "./LandingPage";
 import { useCurrency } from "./CurrencyProvider";
 import FloorDetailModal from "./FloorDetailModal";
+import TabuIcon from "./TabuIcon";
 
 const floorsData = [
   { number: 21, pricePerSqm: 20500, grossSqm: 1550, netSqm: 1131, totalPrice: 31775000, parking: 8, zone: "Mid-High", badgeKey: "" },
@@ -62,11 +63,14 @@ export default function AvailableFloors() {
                 </div>
                 <div className="text-2xl font-bold text-gold mb-1">{fmtPrice(floor.totalPrice)}</div>
                 <div className="text-xs text-gray-400 mb-4">{t.floorPrice}</div>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-4">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mb-3">
                   <div><span className="text-gray-400 text-xs">{t.gross}</span><div className="font-medium">{fmt(floor.grossSqm)} {dict.common.sqm}</div></div>
-                  <div><span className="text-gray-400 text-xs">{t.net}</span><div className="font-medium">~{fmt(floor.netSqm)} {dict.common.sqm}</div></div>
                   <div><span className="text-gray-400 text-xs">{t.pricePerSqm}</span><div className="font-medium">{fmtPrice(floor.pricePerSqm)}</div></div>
                   <div><span className="text-gray-400 text-xs">{t.parking}</span><div className="font-medium">{floor.parking} ({t.parkingExtra})</div></div>
+                </div>
+                <div className="bg-navy/5 rounded-lg px-3 py-2 mb-4 flex items-center gap-2">
+                  <TabuIcon className="w-4 h-4 text-gold-dark shrink-0" />
+                  <span className="text-xs text-navy/70 font-medium">{t.tabuNote}</span>
                 </div>
                 <button onClick={(e) => { e.stopPropagation(); setDetailFloor(floor.number); }} className="block w-full text-center bg-navy hover:bg-navy-light text-white text-sm font-medium py-3 rounded-lg transition-colors">{t.detailsFor} {floor.number}</button>
               </motion.div>
