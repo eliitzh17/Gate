@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a2744;
+  --navy: #1a2744;
+  --navy-deep: #0d1829;
+  --navy-light: #243356;
+  --slate: #2d3748;
+  --gold: #c9a84c;
+  --gold-light: #e6c06a;
+  --gold-dark: #a67c2e;
+  --champagne: #f0e6c8;
+  --warm-white: #f8f7f4;
+  --gray-light: #f5f5f5;
+  --gray-medium: #e5e5e5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-light: var(--navy-light);
+  --color-slate: var(--slate);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-champagne: var(--champagne);
+  --color-warm-white: var(--warm-white);
+  --color-gray-light: var(--gray-light);
+  --color-gray-medium: var(--gray-medium);
+  --font-sans: var(--font-heebo);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-heebo), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium headline typography */
+.text-display {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* Floor card hover */
+.floor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(26, 39, 68, 0.18);
+}
+
+.floor-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
